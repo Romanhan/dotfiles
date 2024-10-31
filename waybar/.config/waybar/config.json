@@ -3,6 +3,20 @@
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
   "modules-right": ["network", "pulseaudio", "battery", "clock"],
+
+  "modules-right": ["network", "pulseaudio", "cpu", "memory", "battery", "clock"],
+  
+  "cpu": {
+    "format": "<span foreground='#89b4fa'>󰻠 </span>{usage}%",
+    "tooltip": false,
+    "interval": 1
+  },
+  
+  "memory": {
+    "format": "<span foreground='#fab387'>󰍛 </span>{}%",
+    "interval": 1
+  },
+
   "clock": {
     "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
