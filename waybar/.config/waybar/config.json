@@ -1,23 +1,26 @@
 {
-  "position": "top",
+  //Position Top,
+  "layer": "top",
+  "margin_bottom": 0,
+
+  //Position Bottom
+  // "position": "bottom",
+
+
+
   "modules-left": ["hyprland/workspaces"],
+
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "clock"],
-
-  "modules-right": ["network", "pulseaudio", "cpu", "memory", "battery", "clock"],
   
-  "cpu": {
-    "format": "<span foreground='#89b4fa'>󰻠 </span>{usage}%",
-    "tooltip": false,
-    "interval": 1
-  },
+  "modules-right": [
+	  "network", 
+	  "pulseaudio", 
+	  "group/hardware", 
+	  "battery", 
+	  "clock"
+  ],
   
-  "memory": {
-    "format": "<span foreground='#fab387'>󰍛 </span>{}%",
-    "interval": 1
-  },
-
-  "clock": {
+    "clock": {
     "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
@@ -50,5 +53,26 @@
           "default": ["", "", " "]
       },
       "on-click": "pavucontrol"
+  },
+  //Group Hardware,
+  "group/hardware": {
+	"orientation": "horizontal",
+	"modules": [
+		"disk",
+		"cpu",
+		"memory"
+	]
+  },
+
+  "memory": {
+    "format": "<span foreground='#fab387'>󰍛 </span>{}%",
+    "interval": 1
+  },
+  "cpu": {
+    "format": "<span foreground='#89b4fa'>󰻠 </span>{usage}%",
+    "tooltip": false,
+    "interval": 1
   }
-}
+} 
+
+
