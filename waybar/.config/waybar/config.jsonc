@@ -211,7 +211,7 @@
          },
 
          "clock": {
-            "format":  "{:%H:%M 󰃮 %d·%m·%y}",
+            "format":  "󰥔 {:%H:%M 󰃮 %d·%m·%y}",
 	    "rotate": 0,
             "tooltip-format": "<span>{calendar}</span>",
             "calendar": {
