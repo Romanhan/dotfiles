@@ -101,7 +101,7 @@ tooltip {
 #network, #bluetooth {
     color: #a6e3a1;
     background: @crust; 
-    margin: 4px 5px;
+    margin: 4px 2px;
     padding: 0.2rem 0.2rem;
 }
 
@@ -115,13 +115,13 @@ tooltip {
 #bluetooth {
     border-radius: 0px 15px 15px 0px;
     margin-left: 0;
-    padding-right: 1rem;
+    padding-right: 1.2rem;
 }
 
 #backlight, #pulseaudio, #clock, #language {
     color: @teal;
     background: @crust; 
-    margin: 4px 5px;
+    margin: 4px 1px;
     padding: 0.2rem 0.2rem;
 }
 
@@ -148,7 +148,7 @@ tooltip {
 #battery, #custom-power {
     color: @lavender; 
     background: @crust; 
-    margin: 4px 5px;
+    margin: 4px 2px;
     padding: 0.2rem 0.2rem;
 }
 
@@ -162,6 +162,7 @@ tooltip {
 #custom-power {
     border-radius: 0px 15px 15px 0px;
     margin-left: 0;
+    margin-right: 5px;
     padding-right: 1.2rem;
 }
 
