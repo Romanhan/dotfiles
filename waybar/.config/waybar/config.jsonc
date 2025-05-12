@@ -125,28 +125,28 @@
         },
     
         "hyprland/window": {
-            "format": "  {}",
+            "format": "   {}",
             "rotate": 0,
             "separate-outputs": true,
             "rewrite": {
-                "khing@archlinux:(.*)": "$1 ",
-                "(.*) — Mozilla Firefox": "$1 󰈹",
-                "(.*)Mozilla Firefox": "Firefox 󰈹",
-                "(.*) - Visual Studio Code": "$1 󰨞",
-                "(.*)Visual Studio Code": "Code 󰨞",
-                "(.*) - Code - OSS": "$1 󰨞",
-                "(.*)Code - OSS": "Code 󰨞",
-                "(.*) — Dolphin": "$1 󰉋",
-                "(.*)Spotify": "Spotify 󰓇",
-                "(.*)Steam": "Steam 󰓓",
+                "khing@archlinux:(.*)": "$1  ",
+                "(.*) — Mozilla Firefox": "$1 󰈹 ",
+                "(.*)Mozilla Firefox": "Firefox 󰈹 ",
+                "(.*) - Visual Studio Code": "$1 󰨞 ",
+                "(.*)Visual Studio Code": "Code 󰨞 ",
+                "(.*) - Code - OSS": "$1 󰨞 ",
+                "(.*)Code - OSS": "Code 󰨞 ",
+                "(.*) — Dolphin": "$1 󰉋 ",
+                "(.*)Spotify": "Spotify 󰓇 ",
+                "(.*)Steam": "Steam 󰓓 ",
                 "(.*) - Discord": "$1  ",
                 "(.*)Netflix": "Netflix 󰝆 ",
                 "(.*) — Google chrome": "$1  ",
                 "(.*)Google chrome": "Google chrome  ",
                 "(.*) — Github": "$1  ",
-                "(.*)Github": "Github ",
-                "(.*)Spotify Free": "Spotify 󰓇",
-                "(.*)Spotify Premiun": "Spotify 󰓇"
+                "(.*)Github": "Github  ",
+                "(.*)Spotify Free": "Spotify 󰓇 ",
+                "(.*)Spotify Premiun": "Spotify 󰓇 "
             },
             "max-length": 70
         },
@@ -181,7 +181,7 @@
             "device": "intel_backlight",
             "rotate": 0,
             "format": "{icon} {percent}%",
-            "format-icons": ["", "", "", "", "", "", "", "", ""],
+            "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
             "tooltip-format": "{icon} {percent}% ",
             "on-scroll-up": "brightnesscontrol.sh i 1",
             "on-scroll-down": "brightnesscontrol.sh d 1",
@@ -206,7 +206,7 @@
                 "phone": "",
                 "portable": "",
                 "car": "",
-                "default": ["", "", ""]
+                "default": ["", " ", " "]
             }
          },
 

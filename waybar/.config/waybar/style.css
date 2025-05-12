@@ -24,7 +24,7 @@ tooltip {
 }
 
 #window{
-    color: @yellow;
+    color: @rosewater;
     padding-left: 10px;
 }
 
@@ -39,12 +39,12 @@ tooltip {
     padding-left: 0px;
     padding-right: 0px;
     margin-right: 0px;
-    color: @yellow;
+    color: @rosewater;
     animation: ws_normal 20s ease-in-out 1;
 }
 
 #workspaces button.active {
-    background: @yellow;
+    background: @rosewater;
     color: @crust;
     margin-left: 3px;
     margin-right: 3px;
@@ -53,7 +53,7 @@ tooltip {
 }
 
 #workspaces button:hover {
-    background: @pink;
+    background: @peach;
     color: @crust;
     animation: ws_hover 20s ease-in-out 1;
     transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
@@ -119,7 +119,6 @@ tooltip {
 }
 
 #backlight, #pulseaudio, #clock, #language {
-    color: @teal;
     background: @crust; 
     margin: 4px 1px;
     padding: 0.2rem 0.2rem;
@@ -130,18 +129,21 @@ tooltip {
     margin-right: 0;
     padding-left: 1rem;
     padding-right: 1rem;
+    color: @teal
 }
 
 #pulseaudio {
     margin-left: 0;
     margin-right: 0;
     padding-right: 1rem;
+    color: @teal
 }
 
 #clock {
     border-radius: 0px 15px 15px 0px;
     margin-left: 0;
     padding-right: 1.2rem;
+    color: @text
 }
 
 
@@ -183,11 +185,7 @@ tooltip {
 #custom-notifications,
 #privacy,
 #custom-sensorsinfo,
-#custom-spotify,
 #taskbar,
-#custom-theme,
-#custom-wallchange,
-#custom-wbar,
 #custom-weather {
     color: @crust;
     background: #cdd6f4;
