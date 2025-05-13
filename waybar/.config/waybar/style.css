@@ -109,7 +109,7 @@ tooltip {
     border-radius: 15px 0px 0px 15px;
     margin-right: 0;
     padding-left: 1rem;
-    padding-right: 1rem;
+    padding-right: 0.8rem;
 }
 
 #bluetooth {
@@ -128,7 +128,7 @@ tooltip {
     border-radius: 15px 0px 0px 15px;
     margin-right: 0;
     padding-left: 1rem;
-    padding-right: 1rem;
+    padding-right: 0.6rem;
     color: @teal
 }
 
