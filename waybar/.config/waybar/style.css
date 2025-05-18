@@ -1,0 +1,208 @@
+* {
+    border: none;
+    border-radius: 0px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 10px;
+    min-height: 10px;
+}
+
+window#waybar {
+    background: rgba(58, 58, 58, 0.4); 
+    border: 0px;
+    border-radius: 15px;
+    border: 1.3px solid rgba(138, 138, 138, 0.5);
+    box-shadow: 0px 41px 22px rgba(1, 1, 1, 1);
+}
+
+tooltip {
+    background: rgba(42, 42, 42, 0.3); 
+    color: #FFFFFF; 
+    border-radius: 7px;
+    border-width: 0px;
+}
+
+#window {
+    color: #FFFFFF;
+    padding-left: 10px;
+}
+
+#workspaces button {
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0px;
+    border-radius: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+    color: #F0F0F0;
+    background: rgba(0, 0, 0, 0); 
+    border: 1px solid rgba(138, 138, 138, 0.2);
+    animation: ws_normal 20s ease-in-out 1;
+}
+
+#workspaces button.active {
+    background: rgba(108, 108, 108, 0.3); 
+    color: #F0F0F0;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: 1px solid rgba(138, 138, 138, 0.6);
+    animation: ws_active 20s ease-in-out 1;
+    transition: all 0.4s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+#workspaces button:hover {
+    background: rgba(108, 108, 108, 0.3); 
+    color: #F0F0F0;
+    animation: ws_hover 20s ease-in-out 1;
+    transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+#tray menu * {
+    min-height: 16px;
+}
+
+#tray menu separator {
+    min-height: 10px;
+}
+
+.modules-left {
+    background: rgba(255, 255, 255, 0.1); 
+    margin: 4px 0px 4px 5px;
+    padding: 0px 13px 0px 5px;
+    border-radius: 15px;
+    border: 1px solid rgba(138, 138, 138, 0.2);
+}
+
+#cpu {
+    padding-left: 5px;
+    color: #F0F0F0;
+}
+
+#memory {
+    padding-left: 10px;
+    color: #F0F0F0;
+}
+
+#custom-updates {
+    padding-left: 10px;	
+    color: #F0F0F0;
+}
+
+.modules-center {
+    background: rgba(255, 255, 255, 0.1); 
+    margin: 4px 4px 4px 4px;
+    padding: 4px 10px 4px 10px;
+    border-radius: 15px;
+    border: 1px solid rgba(138, 138, 138, 0.2);
+}
+
+#network, #bluetooth {
+    color: #F0F0F0;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 4px 2px;
+    padding: 0.2rem 0.2rem;
+    border: 1px solid rgba(138, 138, 138, 0.2);
+    border-radius: 15px;
+}
+
+#network {
+    border-radius: 15px 0px 0px 15px;
+    margin-right: 0;
+    padding-left: 1rem;
+    padding-right: 0.8rem;
+    border-right: none;
+}
+
+#bluetooth {
+    border-radius: 0px 15px 15px 0px;
+    margin-left: 0;
+    padding-right: 1.2rem;
+    border-left: none;
+}
+
+#backlight, #pulseaudio, #clock, #language {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 4px 1px;
+    padding: 0.2rem 0.2rem;
+    border: 1px solid rgba(138, 138, 138, 0.2);
+}
+
+#backlight {
+    border-radius: 15px 0px 0px 15px;
+    margin-right: 0;
+    padding-left: 1rem;
+    padding-right: 0.6rem;
+    color: #F0F0F0;
+    border-right: none;
+}
+
+#pulseaudio {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 1rem;
+    color: #F0F0F0;
+    border-right: none;
+    border-left: none;
+}
+
+#clock {
+    border-radius: 0px 15px 15px 0px;
+    margin-left: 0;
+    padding-right: 1.2rem;
+    color: #F0F0F0;
+    border-left: none;
+}
+
+#battery, #custom-power {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 4px 2px;
+    padding: 0.2rem 0.2rem;
+    border: 1px solid rgba(138, 138, 138, 0.2);
+}
+
+#battery {
+    border-radius: 15px 0px 0px 15px;
+    margin-right: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-right: none;
+}
+
+#custom-power {
+    border-radius: 0px 15px 15px 0px;
+    margin-left: 0;
+    margin-right: 5px;
+    padding-right: 1.2rem;
+    border-left: none;
+}
+
+#tray {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #F0F0F0;
+}
+
+#custom-cava,
+#custom-cpuinfo,
+#custom-github_hyde,
+#custom-gpuinfo,
+#custom-hyprsunset,
+#idle_inhibitor,
+#mpris,
+#custom-notifications,
+#privacy,
+#custom-sensorsinfo,
+#taskbar,
+#custom-weather {
+    color: #F0F0F0;
+    background: rgba(74, 74, 74, 0.8);
+    opacity: 1;
+    margin: 4px 0px 4px 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
