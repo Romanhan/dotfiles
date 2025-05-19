@@ -1,6 +1,5 @@
 {
         "layer": "top",
-        "output": [ "eDP-1" ],
         "position": "top",
         "mod": "dock",
         "height": 28,
@@ -21,7 +20,7 @@
     
         "cpu": {
             "interval": 10,
-            "format": "󰍛 {usage}%",
+            "format": "󰍛  {usage}%",
             "rotate": 0,
             "format-alt": "{icon0}{icon1}{icon2}{icon3}",
             "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
@@ -159,7 +158,7 @@
          },
 
          "clock": {
-            "format":  "󰥔 {:%H:%M  󰃮 %d·%m·%y}",
+            "format": "󰥔  {:%H:%M  󰃮  %d.%m.%y}",
 	    "rotate": 0,
             "tooltip-format": "<span>{calendar}</span>",
             "calendar": {
@@ -201,9 +200,9 @@
         },
     
         "tray": {
-            "icon-size": 16,
+            "icon-size": 12,
             "rotate": 0,
-            "spacing": 5
+            "spacing": 8
         },
     
         "battery": {
@@ -220,7 +219,6 @@
             "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
         },
     
-          
         "custom/power": {
             "format": "{}",
             "rotate": 0,
@@ -231,8 +229,6 @@
             "tooltip": true
         }
     
-    
-   
     }
     
     
