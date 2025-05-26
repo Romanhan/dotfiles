@@ -3,14 +3,15 @@
     border-radius: 0px;
     font-family: "JetBrainsMono Nerd Font";
     font-weight: bold;
-    font-size: 10px;
-    min-height: 10px;
+    font-size: 11px;
+    min-width: 20px;
+    min-height: 20px;
 }
 
 window#waybar {
-    background: rgba(58, 58, 58, 0.4); 
+    background: rgba(67, 67, 67, 0.6); 
     border: 0px;
-    border-radius: 15px;
+    border-radius: 19px;
     border: 1.3px solid rgba(138, 138, 138, 0.5);
     box-shadow: 0px 41px 22px rgba(1, 1, 1, 1);
 }
@@ -31,13 +32,13 @@ tooltip {
     box-shadow: none;
     text-shadow: none;
     padding: 0px;
-    border-radius: 10px;
+    border-radius: 50%;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
     padding-left: 0px;
     padding-right: 0px;
-    margin-right: 0px;
+    margin-right: 1px;
     color: #F0F0F0;
     background: rgba(0, 0, 0, 0); 
     border: 1px solid rgba(138, 138, 138, 0.2);
@@ -47,8 +48,6 @@ tooltip {
 #workspaces button.active {
     background: rgba(108, 108, 108, 0.3); 
     color: #F0F0F0;
-    margin-left: 3px;
-    margin-right: 3px;
     border: 1px solid rgba(138, 138, 138, 0.6);
     animation: ws_active 20s ease-in-out 1;
     transition: all 0.4s cubic-bezier(.55, -0.68, .48, 1.682);
@@ -71,14 +70,14 @@ tooltip {
 
 .modules-left {
     background: rgba(255, 255, 255, 0.1); 
-    margin: 4px 0px 4px 5px;
-    padding: 0px 13px 0px 5px;
+    margin: 3px 0px 3px 3px;
+    padding: 0px 5px 0px 5px;
     border-radius: 15px;
     border: 1px solid rgba(138, 138, 138, 0.2);
 }
 
 #cpu {
-    padding-left: 5px;
+    padding-left: 4px;
     color: #F0F0F0;
 }
 
@@ -94,8 +93,8 @@ tooltip {
 
 .modules-center {
     background: rgba(255, 255, 255, 0.1); 
-    margin: 4px 4px 4px 4px;
-    padding: 4px 10px 4px 10px;
+    margin: 3px 0px 3px 0px;
+    padding: 1px 10px 1px 2px;
     border-radius: 15px;
     border: 1px solid rgba(138, 138, 138, 0.2);
 }
@@ -103,8 +102,8 @@ tooltip {
 #network, #bluetooth {
     color: #F0F0F0;
     background: rgba(255, 255, 255, 0.1);
-    margin: 4px 2px;
-    padding: 0.2rem 0.2rem;
+    margin: 3px 2px;
+    padding: 0.1rem 0.1rem;
     border: 1px solid rgba(138, 138, 138, 0.2);
     border-radius: 15px;
 }
@@ -112,30 +111,30 @@ tooltip {
 #network {
     border-radius: 15px 0px 0px 15px;
     margin-right: 0;
-    padding-left: 1rem;
-    padding-right: 0.8rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
     border-right: none;
 }
 
 #bluetooth {
     border-radius: 0px 15px 15px 0px;
     margin-left: 0;
-    padding-right: 1.2rem;
+    padding-right: 0.5rem;
     border-left: none;
 }
 
 #backlight, #pulseaudio, #clock, #language {
     background: rgba(255, 255, 255, 0.1);
-    margin: 4px 1px;
-    padding: 0.2rem 0.2rem;
+    margin: 3px 1px;
+    padding: 0.1rem 0.1rem;
     border: 1px solid rgba(138, 138, 138, 0.2);
 }
 
 #backlight {
     border-radius: 15px 0px 0px 15px;
     margin-right: 0;
-    padding-left: 1rem;
-    padding-right: 0.6rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     color: #F0F0F0;
     border-right: none;
 }
@@ -152,7 +151,7 @@ tooltip {
 #clock {
     border-radius: 0px 15px 15px 0px;
     margin-left: 0;
-    padding-right: 1.2rem;
+    padding-right: 0.6rem;
     color: #F0F0F0;
     border-left: none;
 }
@@ -160,30 +159,29 @@ tooltip {
 #battery, #custom-power {
     color: #FFFFFF;
     background: rgba(255, 255, 255, 0.1);
-    margin: 4px 2px;
-    padding: 0.2rem 0.2rem;
+    margin: 3px 2px;
+    padding: 0.1rem 0.1rem;
     border: 1px solid rgba(138, 138, 138, 0.2);
 }
 
 #battery {
     border-radius: 15px 0px 0px 15px;
     margin-right: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.6rem;
+    padding-right: 0.4rem;
     border-right: none;
 }
 
 #custom-power {
     border-radius: 0px 15px 15px 0px;
     margin-left: 0;
-    margin-right: 5px;
-    padding-right: 1.2rem;
+    margin-right: 3px;
+    padding-right: 0.5rem;
     border-left: none;
 }
 
 #tray {
     padding-left: 5px;
-    padding-right: 5px;
     color: #F0F0F0;
 }
 
