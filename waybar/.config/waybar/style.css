@@ -1,7 +1,6 @@
 * {
     border: none;
-    border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "JetBrainsMono Nerd Font Propo";
     font-weight: bold;
     font-size: 11px;
     min-width: 20px;
@@ -11,7 +10,7 @@
 window#waybar {
     background: rgba(67, 67, 67, 0.6); 
     border: 0px;
-    border-radius: 19px;
+    border-radius: 16px;
     border: 1.3px solid rgba(138, 138, 138, 0.5);
     box-shadow: 0px 41px 22px rgba(1, 1, 1, 1);
 }
@@ -19,7 +18,6 @@ window#waybar {
 tooltip {
     background: rgba(42, 42, 42, 0.3); 
     color: #FFFFFF; 
-    border-radius: 7px;
     border-width: 0px;
 }
 
@@ -32,7 +30,7 @@ tooltip {
     box-shadow: none;
     text-shadow: none;
     padding: 0px;
-    border-radius: 50%;
+    border-radius: 16px;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
@@ -65,14 +63,14 @@ tooltip {
 }
 
 #tray menu separator {
-    min-height: 10px;
+    min-height: 0px;
 }
 
 .modules-left {
     background: rgba(255, 255, 255, 0.1); 
     margin: 3px 0px 3px 3px;
     padding: 0px 5px 0px 5px;
-    border-radius: 15px;
+    border-radius: 16px;
     border: 1px solid rgba(138, 138, 138, 0.2);
 }
 
@@ -95,7 +93,7 @@ tooltip {
     background: rgba(255, 255, 255, 0.1); 
     margin: 3px 0px 3px 0px;
     padding: 1px 10px 1px 2px;
-    border-radius: 15px;
+    border-radius: 16px;
     border: 1px solid rgba(138, 138, 138, 0.2);
 }
 
@@ -105,11 +103,11 @@ tooltip {
     margin: 3px 2px;
     padding: 0.1rem 0.1rem;
     border: 1px solid rgba(138, 138, 138, 0.2);
-    border-radius: 15px;
+    border-radius: 16px;
 }
 
 #network {
-    border-radius: 15px 0px 0px 15px;
+    border-radius: 16px 0px 0px 15px;
     margin-right: 0;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
@@ -131,7 +129,7 @@ tooltip {
 }
 
 #backlight {
-    border-radius: 15px 0px 0px 15px;
+    border-radius: 16px 0px 0px 15px;
     margin-right: 0;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -165,7 +163,7 @@ tooltip {
 }
 
 #battery {
-    border-radius: 15px 0px 0px 15px;
+    border-radius: 16px 0px 0px 15px;
     margin-right: 0;
     padding-left: 0.6rem;
     padding-right: 0.4rem;
@@ -184,24 +182,3 @@ tooltip {
     padding-left: 5px;
     color: #F0F0F0;
 }
-
-#custom-cava,
-#custom-cpuinfo,
-#custom-github_hyde,
-#custom-gpuinfo,
-#custom-hyprsunset,
-#idle_inhibitor,
-#mpris,
-#custom-notifications,
-#privacy,
-#custom-sensorsinfo,
-#taskbar,
-#custom-weather {
-    color: #F0F0F0;
-    background: rgba(74, 74, 74, 0.8);
-    opacity: 1;
-    margin: 4px 0px 4px 0px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
