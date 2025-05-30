@@ -39,14 +39,14 @@ tooltip {
     margin-right: 1px;
     color: #F0F0F0;
     background: rgba(0, 0, 0, 0); 
-    border: 1px solid rgba(138, 138, 138, 0.2);
+    border: 1px solid rgba(158, 158, 158, 0.6);
     animation: ws_normal 20s ease-in-out 1;
 }
 
 #workspaces button.active {
     background: rgba(108, 108, 108, 0.3); 
     color: #F0F0F0;
-    border: 1px solid rgba(138, 138, 138, 0.6);
+    border: 1px solid rgba(253, 250, 246, 0.6);
     animation: ws_active 20s ease-in-out 1;
     transition: all 0.4s cubic-bezier(.55, -0.68, .48, 1.682);
 }
