@@ -170,6 +170,10 @@ tooltip {
     border-right: none;
 }
 
+#battery.verylow {
+    color: red;
+}
+
 #custom-power {
     border-radius: 0px 15px 15px 0px;
     margin-left: 0;
