@@ -1,0 +1,5 @@
+selector = rofi
+selector-args = -matching normal -i
+use-icons = true
+clipboarder = wl-copy
+typer = wtype
