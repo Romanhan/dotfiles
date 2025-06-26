@@ -1,6 +1,6 @@
 * {
     border: none;
-    font-family: "JetBrainsMono Nerd Font Propo";
+    font-family: "CaskaydiaCove Nerd Font Propo";
     font-weight: bold;
     font-size: 11px;
     min-width: 20px;
@@ -163,7 +163,7 @@ tooltip {
     border-right: none;
 }
 
-#battery.verylow {
+#battery.critical {
     color: red;
 }
 
