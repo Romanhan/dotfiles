@@ -12,11 +12,11 @@
         "gtk-layer-shell": true,
         "reload_style_on_change": true,
     
-    	  "modules-left": ["cpu","memory","custom/cpuinfo","custom/gpuinfo","custom/updates","tray"],
+    	  "modules-left": ["cpu","memory","custom/updates","tray"],
  
         "modules-center": ["hyprland/workspaces","hyprland/window"],
 	
-        "modules-right": ["network","bluetooth","backlight","pulseaudio","clock","privacy","battery","custom/power"],
+        "modules-right": ["network","backlight","pulseaudio","clock","battery","custom/power"],
     
         "cpu": {
             "interval": 10,
@@ -43,18 +43,28 @@
             "tooltip": true,
             "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB / {total:0.1f}GB",
         },
-     
-       	"custom/updates": {
-            "format": "󰅢 {}",
-            "interval": 7200,   
-            "exec": "bash -c 'yay -Qu | wc -l'",
-            "exec-if": "exit 0",
-            "on-click": "kitty sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
-            "signal": 8,
+             
+        "custom/updates": {
+            "exec": "~/.config/waybar/modules/system-update.sh",
+            "return-type": "json",
+            "format": "{}",
+            "on-click": "~/.config/waybar/modules/system-update.sh up",
+            "interval": 86400,
             "tooltip": true,
-	          "tooltip-format": "{} updates available",
+            "signal": 20
         },
-        
+
+        "costum/bluetooth": {
+            "exec": "~/.config/waybar/modules/bluetooth.sh",
+            "interval": 10,
+            "tooltip": true
+        },
+  
+        "tray": {
+            "icon-size": 15,
+            "spacing": 0
+        },
+
         "hyprland/workspaces": {
             "disable-scroll": true,
             "rotate": 0,
@@ -107,20 +117,7 @@
             "format-alt": "<span foreground='#99ffdd'>  {bandwidthDownBytes}</span>  <span foreground='#ffcc66'>  {bandwidthUpBytes}</span>",
             "interval": 2
         },
-
-	      "bluetooth": {
-            "format-on": "󰂯",
-            "format-off": "BT-off",
-            "format-disabled": "󰂲",
-            "format-connected-battery": "{device_battery_percentage}% 󰂯",
-            "format-alt": "{device_alias} 󰂯",
-            "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-            "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-            "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-            "on-click-right": "blueman-manager"
-        },
-     
+        
         "backlight": {
             "device": "intel_backlight",
             "rotate": 0,
@@ -178,30 +175,6 @@
             }
         },
          
-        "privacy": {
-            "icon-size": 12,
-            "icon-spacing": 5,
-            "transition-duration": 250,
-            "modules": [
-                {
-                    "type": "screenshare",
-                    "tooltip": true,
-                    "tooltip-icon-size": 24
-                },
-                {
-                    "type": "audio-in",
-                    "tooltip": true,
-                    "tooltip-icon-size": 24
-                }
-            ]
-        },
-    
-        "tray": {
-            "icon-size": 12,
-            "rotate": 0,
-            "spacing": 8
-        },
-    
         "battery": {
             "states": {
                 "good": 95,

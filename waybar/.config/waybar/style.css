@@ -12,7 +12,6 @@ window#waybar {
     border: 0px;
     border-radius: 16px;
     border: 2px solid rgba(158, 158, 158, 0.6);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33);
 }
 
 tooltip {
@@ -56,12 +55,17 @@ tooltip {
     transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
 }
 
+#tray {
+    margin: 0;
+    padding: 0;
+}
+
 #tray menu * {
     min-height: 16px;
 }
 
 #tray menu separator {
-    min-height: 0px;
+    min-height: 1px;
 }
 
 .modules-left {
@@ -78,10 +82,12 @@ tooltip {
 
 #memory {
     padding-left: 10px;
+    padding-right: 5px;
 }
 
 #custom-updates {
-    padding-left: 10px;	
+    padding-left: 5px;	
+    padding-right: 10px;	
 }
 
 .modules-center {
@@ -92,12 +98,11 @@ tooltip {
     border: 1px solid rgba(138, 138, 138, 0.6);
 }
 
-#network, #bluetooth {
+#network, #backlight, #pulseaudio, #clock, #language {
     background: rgba(255, 255, 255, 0.1);
-    margin: 3px 2px;
+    margin: 3px 1px;
     padding: 0.1rem 0.1rem;
     border: 1px solid rgba(138, 138, 138, 0.6);
-    border-radius: 16px;
 }
 
 #network {
@@ -108,26 +113,12 @@ tooltip {
     border-right: none;
 }
 
-#bluetooth {
-    border-radius: 0px 16px 16px 0px;
+#backlight {
+    border-radius: 0px 0px 0px 0px;
+    margin-right: 0;
     margin-left: 0;
     padding-right: 0.5rem;
     border-left: none;
-}
-
-#backlight, #pulseaudio, #clock, #language {
-    background: rgba(255, 255, 255, 0.1);
-    margin: 3px 1px;
-    padding: 0.1rem 0.1rem;
-    border: 1px solid rgba(138, 138, 138, 0.6);
-}
-
-#backlight {
-    border-radius: 16px 0px 0px 16px;
-    margin-right: 0;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    color: #F0F0F0;
     border-right: none;
 }
 
@@ -173,8 +164,4 @@ tooltip {
     margin-right: 3px;
     padding-right: 0.5rem;
     border-left: none;
-}
-
-#tray {
-    padding-left: 5px;
 }
