@@ -1,0 +1,95 @@
+* {
+    bg-color: #43434380;
+    bg-color-alt: #1C25264d;
+    bg-color-selected: rgba(108, 108, 108, 0.3);
+    fg-color: #FFFFFF;
+    accent-color: rgba(138, 138, 173, 0.85);
+    border-color: rgba(176, 176, 176, 0.35);
+    background-color: transparent;
+    text-color: @fg-color;
+    handle-color: rgba(176, 176, 176, 0.6);
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 200px;
+    x-offset: 0px;
+    y-offset: 0px;
+    enabled: true;
+    margin: 0px;
+    padding: 8px 0px;
+    border: 1px solid;
+    border-radius: 12px;
+    border-color: @border-color;
+    background-color: @bg-color;
+    cursor: "default";
+}
+
+mainbox {
+    enabled: true;
+    spacing: 8px;
+    margin: 0px;
+    padding: 10px;
+    border: 0px solid;
+    border-radius: 0px;
+    background-color: transparent;
+    children: [ "listview" ]; 
+}
+
+listview {
+    enabled: true;
+    columns: 1;
+    lines: 4; /* Adjust based on number of menu options */
+    cycle: true;
+    dynamic: true;
+    scrollbar: false; /* No scrollbar needed for a small menu */
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 5px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+element {
+    transparency: "real";
+    enabled: true;
+    spacing: 0px;
+    margin: 0px 4px;
+    padding: 8px 10px; /* Slightly more padding for better spacing */
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: rgba(176, 176, 176, 0.2);
+    background-color: @bg-color-alt;
+    text-color: @fg-color;
+    cursor: pointer;
+}
+
+element selected.normal {
+    border-color: @accent-color;
+    background-color: @bg-color-selected;
+    text-color: @fg-color;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 0px;
+    cursor: inherit;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    cursor: inherit;
+}
