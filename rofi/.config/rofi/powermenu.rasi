@@ -22,7 +22,7 @@ window {
     margin: 0px;
     padding: 8px 0px;
     border: 1px solid;
-    border-radius: 12px;
+    border-radius: 25px;
     border-color: @border-color;
     background-color: @bg-color;
     cursor: "default";
@@ -36,7 +36,7 @@ mainbox {
     border: 0px solid;
     border-radius: 0px;
     background-color: transparent;
-    children: [ "listview" ]; 
+    children: [ "listview" ]; /* Remove inputbar and message */
 }
 
 listview {
@@ -63,10 +63,10 @@ element {
     transparency: "real";
     enabled: true;
     spacing: 0px;
-    margin: 0px 4px;
+    margin: 0px 10px;
     padding: 8px 10px; /* Slightly more padding for better spacing */
     border: 1px solid;
-    border-radius: 10px;
+    border-radius: 20px;
     border-color: rgba(176, 176, 176, 0.2);
     background-color: @bg-color-alt;
     text-color: @fg-color;
