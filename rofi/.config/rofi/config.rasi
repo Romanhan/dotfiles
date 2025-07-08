@@ -1,6 +1,6 @@
 configuration {
     modi: "drun,run,filebrowser,window";
-    font: "CaskaydiaCove Nerd Font 10";
+    font: "CaskaydiaCove Nerd Font Propo 10";
     show-icons: true;
     display-drun:               " ";
     display-run:                " ";

@@ -22,7 +22,7 @@ window {
     margin: 0px;
     padding: 8px 0px;
     border: 1px solid;
-    border-radius: 12px;
+    border-radius: 25px;
     border-color: @border-color;
     background-color: @bg-color;
     cursor: "default";
@@ -45,7 +45,7 @@ inputbar {
     margin: 0px 0px 8px 0px;
     padding: 5px 8px;
     border: 1px solid;
-    border-radius: 10px;
+    border-radius: 25px;
     border-color: @border-color;
     background-color: rgba(95, 95, 95, 0.3);
     text-color: @fg-color;
@@ -94,7 +94,7 @@ listview {
 scrollbar {
     handle-width: 5px;
     handle-color: @handle-color;
-    border-radius: 10px;
+    border-radius: 15px;
     background-color: rgba(95, 95, 95, 0.3);
 }
 
@@ -102,10 +102,10 @@ element {
     transparency: "real";
     enabled: true;
     spacing: 10px;
-    margin: 0px 4px;
-    padding: 6px 8px;
+    margin: 0px 7px;
+    padding: 5px 10px;
     border: 1px solid;
-    border-radius: 10px;
+    border-radius: 25px;
     border-color: rgba(176, 176, 176, 0.2);
     background-color: @bg-color-alt;
     text-color: @fg-color;
@@ -147,7 +147,7 @@ mode-switcher {
 button {
     padding: 3px 8px;
     border: 1px solid;
-    border-radius: 6px;
+    border-radius: 15px;
     border-color: rgba(176, 176, 176, 0.2);
     background-color: @bg-color-alt;
     text-color: @fg-color;
@@ -173,7 +173,7 @@ message {
 textbox {
     padding: 8px 10px;
     border: 1px solid;
-    border-radius: 12px;
+    border-radius: 15px;
     border-color: rgba(176, 176, 176, 0.2);
     background-color: @bg-color-alt;
     text-color: @fg-color;
