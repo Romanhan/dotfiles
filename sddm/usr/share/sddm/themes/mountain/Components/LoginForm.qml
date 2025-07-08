@@ -1,61 +1,67 @@
-// This file is part of SDDM Sugar Candy.
-// A theme for the Simple Display Desktop Manager.
-// Copyright (C) 2018–2020 Marian Arlt
-// SDDM Sugar Candy is free software: you can redistribute it and/or modify it
-// under the terms of the GNU General Public License as published by the
-// Free Software Foundation, either version 3 of the License, or any later version.
-// You are required to preserve this and any additional legal notices, either
-// contained in this file or in other files that you received along with
-// SDDM Sugar Candy that refer to the author(s) in accordance with
-// sections §4, §5 and specifically §7b of the GNU General Public License.
-// SDDM Sugar Candy is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-// GNU General Public License for more details.
-// You should have received a copy of the GNU General Public License
-// along with SDDM Sugar Candy. If not, see <https://www.gnu.org/licenses/>
-
 import QtQuick 2.11
 import QtQuick.Layouts 1.11
 import SddmComponents 2.0 as SDDM
 
 ColumnLayout {
     id: formContainer
-
-    property int p: config.ScreenPadding
-    property string a: config.FormPosition
+    
+    // Public properties
     property alias systemButtonVisibility: systemButtons.visible
     property alias clockVisibility: clock.visible
-
+    
+    // Private properties for better readability
+    readonly property int screenPadding: config.ScreenPadding
+    readonly property string formPosition: config.FormPosition
+    readonly property bool hasPadding: screenPadding != "0"
+    readonly property bool isLeftAligned: formPosition == "left"
+    readonly property bool isRightAligned: formPosition == "right"
+    
+    // Calculate margin based on position and padding
+    readonly property int horizontalMargin: {
+        if (!hasPadding) return 0;
+        if (isLeftAligned) return -screenPadding;
+        if (isRightAligned) return screenPadding;
+        return 0;
+    }
+    
+    // Layout constants
+    readonly property real clockHeight: root.height / 4
+    readonly property real inputHeight: root.height / 10
+    readonly property real systemButtonsHeight: root.height / 4
+    
+    // Spacing constants - centralized spacing control
+    readonly property real baseSpacing: root.font.pointSize
+    readonly property real clockToInputSpacing: baseSpacing * 0.5
+    readonly property real inputToButtonsSpacing: baseSpacing * 5  
+    readonly property real componentSpacing: baseSpacing * 0.3
+    
     SDDM.TextConstants {
         id: textConstants
     }
-
+    
     Clock {
         id: clock
-
         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
-        Layout.preferredHeight: root.height / 4
-        Layout.leftMargin: p != "0" ? a == "left" ? -p : a == "right" ? p : 0 : 0
+        Layout.preferredHeight: clockHeight
+        Layout.leftMargin: horizontalMargin
+        Layout.bottomMargin: clockToInputSpacing
     }
-
+    
     Input {
         id: input
-
         Layout.alignment: Qt.AlignVCenter
-        Layout.preferredHeight: root.height / 10
-        Layout.leftMargin: p != "0" ? a == "left" ? -p : a == "right" ? p : 0 : 0
+        Layout.preferredHeight: inputHeight
+        Layout.leftMargin: horizontalMargin
         Layout.topMargin: 0
+        Layout.bottomMargin: inputToButtonsSpacing
     }
-
+    
     SystemButtons {
         id: systemButtons
-
         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
-        Layout.preferredHeight: root.height / 4
-        Layout.maximumHeight: root.height / 4
-        Layout.leftMargin: p != "0" ? a == "left" ? -p : a == "right" ? p : 0 : 0
+        Layout.preferredHeight: systemButtonsHeight
+        Layout.maximumHeight: systemButtonsHeight
+        Layout.leftMargin: horizontalMargin
         exposedSession: input.exposeSession
     }
-
 }
