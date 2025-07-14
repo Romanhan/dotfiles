@@ -1,7 +1,7 @@
 * {
     bg-color: #43434380;
     bg-color-alt: #1C25264d;
-    bg-color-selected: rgba(108, 108, 108, 0.3);
+    bg-color-selected: rgba(74, 74, 68, 0.6);
     fg-color: #FFFFFF;
     accent-color: rgba(138, 138, 173, 0.85);
     border-color: rgba(176, 176, 176, 0.35);
