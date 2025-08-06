@@ -1,30 +1,41 @@
-# Main web2app function - other functions are in separate files
+#!/usr/bin/env fish
+
+# Interactive web2app function - Fish shell version
 function web2app
-    if test (count $argv) -lt 3
-        echo "Usage: web2app <AppName> <AppURL> <IconURL> [browser]"
-        echo "Supported browsers: zen, chromium, chrome, firefox, brave, edge"
-        echo "IconURL must be in PNG format -- use https://dashboardicons.com"
+    # Check if we got 3 arguments, if not, prompt interactively
+    if test (count $argv) -ne 3
+        echo -e "\e[32mLet's create a new web app you can start with the app launcher.\n\e[0m"
+        
+        # Check if gum is installed for better prompts
+        if command -v gum >/dev/null 2>&1
+            set APP_NAME (gum input --prompt "Name> " --placeholder "My favorite web app")
+            set APP_URL (gum input --prompt "URL> " --placeholder "https://example.com")
+            set ICON_URL (gum input --prompt "Icon URL> " --placeholder "See https://dashboardicons.com (must use PNG!)")
+        else
+            # Fallback to basic read prompts
+            echo -n "Name> "
+            read APP_NAME
+            echo -n "URL> " 
+            read APP_URL
+            echo -n "Icon URL> "
+            read ICON_URL
+        end
+    else
+        set APP_NAME $argv[1]
+        set APP_URL $argv[2] 
+        set ICON_URL $argv[3]
+    end
+
+    # Validate inputs
+    if test -z "$APP_NAME" -o -z "$APP_URL" -o -z "$ICON_URL"
+        echo "❌ You must set app name, app URL, and icon URL!"
         return 1
     end
 
-    set -l APP_NAME $argv[1]
-    set -l APP_URL $argv[2]
-    set -l ICON_URL $argv[3]
-    set -l BROWSER $argv[4]
-    set -l ICON_DIR "$HOME/.local/share/applications/icons"
-    set -l DESKTOP_FILE "$HOME/.local/share/applications/$APP_NAME.desktop"
-    set -l ICON_PATH "$ICON_DIR/$APP_NAME.png"
-
-    # Auto-detect browser if not specified
-    if test -z "$BROWSER"
-        set BROWSER (detect_browser)
-        if test -z "$BROWSER"
-            echo "❌ No supported browser found!"
-            echo "Install one of: zen-browser, chromium, google-chrome, firefox, brave, microsoft-edge"
-            return 1
-        end
-        echo "🔍 Auto-detected browser: $BROWSER"
-    end
+    # Set up paths
+    set ICON_DIR "$HOME/.local/share/applications/icons"
+    set DESKTOP_FILE "$HOME/.local/share/applications/$APP_NAME.desktop"
+    set ICON_PATH "$ICON_DIR/$APP_NAME.png"
 
     # Create icon directory
     mkdir -p "$ICON_DIR"
@@ -36,107 +47,29 @@ function web2app
         return 1
     end
 
-    # Get browser command
-    set -l exec_command (get_browser_command "$BROWSER" "$APP_URL" "$APP_NAME")
-    if test -z "$exec_command"
-        echo "❌ Error: Unsupported browser '$BROWSER'"
-        return 1
-    end
-
     # Create desktop file
     echo "🚀 Creating desktop launcher for $APP_NAME..."
     echo "[Desktop Entry]
 Version=1.0
 Name=$APP_NAME
-Comment=$APP_NAME Web App
-Exec=$exec_command
+Comment=$APP_NAME
+Exec=chromium --new-window --ozone-platform=wayland --app=\"$APP_URL\" --name=\"$APP_NAME\" --class=\"$APP_NAME\"
 Terminal=false
 Type=Application
 Icon=$ICON_PATH
-StartupNotify=true
-Categories=Network;WebBrowser;
-Keywords=web;app;$APP_NAME;" > "$DESKTOP_FILE"
+StartupNotify=true" > "$DESKTOP_FILE"
 
     # Make executable
     chmod +x "$DESKTOP_FILE"
-    
-    echo "✅ Desktop app '$APP_NAME' created successfully!"
-    echo "📍 Launcher: $DESKTOP_FILE"  
-    echo "🎨 Icon: $ICON_PATH"
-    echo "🌐 Browser: $BROWSER"
-    echo "🚀 The app should appear in your application menu"
-end
 
-# Helper function: Detect available browser
-function detect_browser
-    # Check browsers in order of preference for web apps
-    set -l browsers zen-browser chromium google-chrome brave-browser firefox microsoft-edge-stable
-    
-    for browser in $browsers
-        if command -v $browser >/dev/null 2>&1
-            switch $browser
-                case "zen-browser"
-                    echo "zen"
-                case "google-chrome"
-                    echo "chrome"  
-                case "brave-browser"
-                    echo "brave"
-                case "microsoft-edge-stable"
-                    echo "edge"
-                case "*"
-                    echo $browser
-            end
-            return 0
-        end
-    end
-    
-    # Return empty if none found
-    return 1
-end
-
-# Helper function: Get browser-specific command with Wayland support
-function get_browser_command
-    set -l browser $argv[1]
-    set -l url $argv[2] 
-    set -l app_name $argv[3]
-    
-    # Check if we're running on Wayland
-    set -l wayland_flags ""
-    if test "$XDG_SESSION_TYPE" = "wayland" -o -n "$WAYLAND_DISPLAY"
-        set wayland_flags "--ozone-platform=wayland"
-    end
-    
-    switch $browser
-        case "zen" "zen-browser"
-            # Zen browser (Firefox-based) - set Wayland environment
-            if test -n "$wayland_flags"
-                echo "env MOZ_ENABLE_WAYLAND=1 zen-browser --new-window --name=\"$app_name\" --class=\"$app_name\" \"$url\""
-            else
-                echo "zen-browser --new-window --name=\"$app_name\" --class=\"$app_name\" \"$url\""
-            end
-            
-        case "chromium"
-            echo "chromium --new-window $wayland_flags --app=\"$url\" --name=\"$app_name\" --class=\"$app_name\""
-            
-        case "chrome" "google-chrome"
-            echo "google-chrome --new-window $wayland_flags --app=\"$url\" --name=\"$app_name\" --class=\"$app_name\""
-            
-        case "firefox"
-            # Firefox - set Wayland environment and use new window mode
-            if test -n "$wayland_flags"
-                echo "env MOZ_ENABLE_WAYLAND=1 firefox --new-window --name=\"$app_name\" --class=\"$app_name\" \"$url\""
-            else
-                echo "firefox --new-window --name=\"$app_name\" --class=\"$app_name\" \"$url\""
-            end
-            
-        case "brave"
-            echo "brave-browser --new-window $wayland_flags --app=\"$url\" --name=\"$app_name\" --class=\"$app_name\""
-            
-        case "edge"
-            echo "microsoft-edge-stable --new-window $wayland_flags --app=\"$url\" --name=\"$app_name\" --class=\"$app_name\""
-            
-        case "*"
-            # Return empty for unsupported browsers
-            return 1
+    # Success message
+    if test (count $argv) -ne 3
+        echo -e "\n✅ You can now find $APP_NAME using the app launcher (SUPER + SPACE)\n"
+        echo "🎉 Web app created successfully!"
+    else
+        echo "✅ Desktop app '$APP_NAME' created successfully!"
+        echo "📍 Launcher: $DESKTOP_FILE"
+        echo "🎨 Icon: $ICON_PATH"
+        echo "🚀 The app should appear in your application menu"
     end
 end
