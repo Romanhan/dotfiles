@@ -135,7 +135,7 @@ element-text {
 
 mode-switcher {
     enabled: true;
-    spacing: 3px;
+    spacing: 0px;
     margin: 0px;
     padding: 0px;
     border: 0px solid;
@@ -145,24 +145,19 @@ mode-switcher {
 }
 
 button {
-    padding: 3px 8px;
+    padding: 3px 6px;
+    margin: 0px;
     border: 1px solid;
-    border-radius: 15px;
+    border-radius: 50%;
     border-color: rgba(176, 176, 176, 0.2);
     background-color: @bg-color-alt;
     text-color: @fg-color;
     cursor: pointer;
 }
 
-button selected {
-    border-color: @accent-color;
-    background-color: @bg-color-selected;
-    text-color: @fg-color;
-}
-
 message {
     enabled: true;
-    margin: 0px 0px 8px 0px;
+    margin: 8px 10px 8px 10px;
     padding: 0px;
     border: 0px solid;
     border-radius: 0px;
